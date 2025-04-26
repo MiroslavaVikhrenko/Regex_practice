@@ -21,6 +21,11 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
 13) Удалить введенный символ из строки, независимо от регистра.
 14) Извлечь из строки вещественное число с фиксированной точкой.
 15) Заменить слово "рыба" на "123", избегая изменения схожих слов.
+16) Подсчитать количество слов в тексте.
+17) Извлечь все цифры, находящиеся между словами "Start" и "End".
+18) Извлечь все имена пользователей из текста (формат "@username").
+19) Найти все цены в тексте, записанные в формате "число грн" или "число$".
+20) Проверить корректность логина (2-10 символов, только буквы и цифры, цифра не может быть первой).
      
     */
     internal class Program
@@ -146,13 +151,71 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //}
 
             // 15) Заменить слово "fish" на "123", избегая изменения схожих слов.
-            string text2 = "I saw a fish. Then I saw a fishing rod and a catfish.";
-            string pattern = @"\bfish\b";
-            string replacement = "123";
+            //string text2 = "I saw a fish. Then I saw a fishing rod and a catfish.";
+            //string pattern = @"\bfish\b";
+            //string replacement = "123";
 
-            string result = Regex.Replace(text2, pattern, replacement);
+            //string result = Regex.Replace(text2, pattern, replacement);
+            //Console.WriteLine(result);
 
-            Console.WriteLine(result);
+            // 16) Подсчитать количество слов в тексте.
+
+            //string text2 = "This is a sample text with several words!";
+            //string pattern = @"\b\w+\b";
+
+            //MatchCollection matches = Regex.Matches(text2, pattern);
+            //Console.WriteLine("Number of words: " + matches.Count);
+
+            // 17) Извлечь все цифры, находящиеся между словами "Start" и "End".
+
+            //string text2 = "Mark bought 3 apples. Start 12345 End. Mike has 25.50$. Start 6789 End.";
+            //string pattern = @"(?<=\bStart\b)(.*?)(?=\bEnd\b)";
+
+            //MatchCollection matches = Regex.Matches(text2, pattern);
+
+            //foreach (Match match in matches)
+            //{
+            //    // Extract digits from the matched string
+            //    string digits = Regex.Replace(match.Value, @"\D", ""); // Remove non-digits
+            //    if (!string.IsNullOrEmpty(digits))
+            //    {
+            //        Console.WriteLine("Found digits: " + digits);
+            //    }
+            //}
+
+            // 18) Извлечь все имена пользователей из текста (формат "@username").
+            //string text2 = "Hello @john, @mike, and @sarah! How are you doing, @alex?";
+            //string pattern = @"@([a-zA-Z0-9_]+)";
+
+            //MatchCollection matches = Regex.Matches(text2, pattern);
+
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine("Found username: " + match.Value);
+            //}
+
+            // 19) Найти все цены в тексте, записанные в формате "number CAD" или "number$".
+            //string text2 = "The price is 25 CAD, and another item costs 19.99$. Mike bought it for 100$. The discount is 5 CAD.";
+            //string pattern = @"\d+(\.\d{1,2})?\s?(CAD|\$)";
+
+            //MatchCollection matches = Regex.Matches(text2, pattern);
+
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine("Found price: " + match.Value);
+            //}
+
+            // 20) Проверить корректность логина (2-10 символов, только буквы и цифры, цифра не может быть первой).
+
+            string username = "user123"; 
+            string pattern = @"^[A-Za-z][A-Za-z0-9]{1,9}$";
+
+            bool isValid = Regex.IsMatch(username, pattern);
+
+            if (isValid)
+                Console.WriteLine("The username is valid.");
+            else
+                Console.WriteLine("The username is invalid.");
         }
     }
 }
