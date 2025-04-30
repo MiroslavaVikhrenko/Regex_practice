@@ -77,7 +77,7 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             // 6) Проверить, является ли введенная строка числом.
             //string p = "^\\d+$";
             //bool res = Regex.IsMatch(text, p);
-            //    Console.WriteLine(res);
+            //Console.WriteLine(res);
 
             // 7) Вставить "Ок" после каждой буквы "о" в тексте.
             //string pattern = "o";
@@ -119,7 +119,7 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //Console.WriteLine(result);
 
             // 12) Проверить надежность пароля (не менее 8 символов, минимум одна заглавная, одна строчная буква и одна цифра).
-            //string password = "Secure123"; 
+            //string password = "Secure123";
             //string password2 = "Password";
             //string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$";
 
@@ -207,15 +207,74 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
 
             // 20) Проверить корректность логина (2-10 символов, только буквы и цифры, цифра не может быть первой).
 
-            string username = "user123"; 
-            string pattern = @"^[A-Za-z][A-Za-z0-9]{1,9}$";
+            //string username = "user123";
+            //string pattern = @"^[A-Za-z][A-Za-z0-9]{1,9}$";
 
-            bool isValid = Regex.IsMatch(username, pattern);
+            //bool isValid = Regex.IsMatch(username, pattern);
 
-            if (isValid)
-                Console.WriteLine("The username is valid.");
-            else
-                Console.WriteLine("The username is invalid.");
+            //if (isValid)
+            //    Console.WriteLine("The username is valid.");
+            //else
+            //    Console.WriteLine("The username is invalid.");
+
+            // 21. Вам нужно извлечь все даты из строки в формате "YYYY-MM-DD".
+            //string input = "Today is 2023-02-21 and the meeting is on 2023-";
+
+            //string pattern = @"\b\d{4}-\d{2}-\d{2}\b";
+
+            //MatchCollection matches = Regex. Matches(input, pattern);
+
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine(match);
+            //}
+
+            // 22. У вас есть список имен в строке, и вы хотите извлечь все имена,
+            // которые начинаются с определенной буквы или последовательности букв.
+            // Напишите программу на C#, которая использует регулярные выражения для извлечения
+            // нужных имен из строки.
+
+            //string names = "Makoto Yumi Yukiko Taro Sadoko Yuka Kenta Shinzo";
+
+            ////char letter = 'Y';
+
+            //string letters = "Yu";
+
+            //string pattern = $@"\b{letters}[A-Za-z]*\b";
+            //MatchCollection matches = Regex.Matches(names, pattern);
+
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine(match);
+            //}
+
+            // 23. Дана строка, получить из нее все ip адреса.
+            // Количество цифр в каждом может быть разным, но формат записи один – [].[].[].[].
+
+            //string text2 = "fjmdfjh 1.2.3.4 vhghgj 999.999.999.999";
+
+            //string pattern = @"\b\d{1,3}(\.\d{1,3}){3}\b";
+
+            //MatchCollection matches = Regex.Matches(text2, pattern);
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine(match.ToString());
+            //}
+
+            // 24. Дан текст, с перечисленными номерами регионов и их названиями:
+            //02 - Винницкая, 25 - Черниговская, 18 - Сумская область и т.д.
+            //Используя регулярное выражение, по вводу номера региона, достать название
+            //региона из строки и вывести на экран. Если вводится не полный номер, например, цифра 2,
+            //достать все регионы, начинающиеся на данную цифру.
+
+            string regions = "18-Sumy, 15-Odesa, 10-Kyiv, 04-Dnipro, 14-Mykolaiv";
+
+            Console.WriteLine("Enter region number:");
+            string region = Console.ReadLine();
+
+            string pattern = $@"\b{region}\d*-([A-Za-z]+)\b";
+
+
         }
     }
 }
