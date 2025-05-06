@@ -380,21 +380,50 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             // например, 09:00. Введите регулярное выражение, чтобы найти время в строке:
             // Завтрак в 09:00 в комнате 123:456.
 
-            string input = "Breakfast at 09:00 in room 123:456";
+            //string input = "Breakfast at 09:00 in room 123:456";
 
-            // Regex pattern to match time in hh:mm format
-            string pattern = @"\b\d{2}:\d{2}\b";
+            //// Regex pattern to match time in hh:mm format
+            //string pattern = @"\b\d{2}:\d{2}\b";
 
-            Match match = Regex.Match(input, pattern);
+            //Match match = Regex.Match(input, pattern);
 
-            if (match.Success)
+            //if (match.Success)
+            //{
+            //    string time = match.Value;
+            //    Console.WriteLine("Found time: " + time);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No time found.");
+            //}
+
+            // 30. Дана строка содержащая и цифры и буквы. Достать все цифры из строки
+            // и положить их в ячейки массива (если идет набор цифр 4578, сложить этот
+            // набор в одну ячейку).
+
+            string input = "abc123def4567gh8";
+
+            // Regex pattern to match one or more consecutive digits
+            string pattern = @"\d+";
+
+            // Find all matches (sequences of digits)
+            MatchCollection matches = Regex.Matches(input, pattern);
+
+            // Create an array to store the digit sequences
+            string[] digitsArray = new string[matches.Count];
+
+            // Fill the array with matched digit sequences
+            int i = 0;
+            foreach (Match match in matches)
             {
-                string time = match.Value;
-                Console.WriteLine("Found time: " + time);
+                digitsArray[i++] = match.Value;
             }
-            else
+
+            // Output the result
+            Console.WriteLine("Extracted digit sequences:");
+            foreach (var digit in digitsArray)
             {
-                Console.WriteLine("No time found.");
+                Console.WriteLine(digit);
             }
         }
     }
