@@ -401,30 +401,47 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             // и положить их в ячейки массива (если идет набор цифр 4578, сложить этот
             // набор в одну ячейку).
 
-            string input = "abc123def4567gh8";
+            //string input = "abc123def4567gh8";
 
-            // Regex pattern to match one or more consecutive digits
-            string pattern = @"\d+";
+            //// Regex pattern to match one or more consecutive digits
+            //string pattern = @"\d+";
 
-            // Find all matches (sequences of digits)
-            MatchCollection matches = Regex.Matches(input, pattern);
+            //// Find all matches (sequences of digits)
+            //MatchCollection matches = Regex.Matches(input, pattern);
 
-            // Create an array to store the digit sequences
-            string[] digitsArray = new string[matches.Count];
+            //// Create an array to store the digit sequences
+            //string[] digitsArray = new string[matches.Count];
 
-            // Fill the array with matched digit sequences
-            int i = 0;
-            foreach (Match match in matches)
-            {
-                digitsArray[i++] = match.Value;
-            }
+            //// Fill the array with matched digit sequences
+            //int i = 0;
+            //foreach (Match match in matches)
+            //{
+            //    digitsArray[i++] = match.Value;
+            //}
 
-            // Output the result
-            Console.WriteLine("Extracted digit sequences:");
-            foreach (var digit in digitsArray)
-            {
-                Console.WriteLine(digit);
-            }
+            //// Output the result
+            //Console.WriteLine("Extracted digit sequences:");
+            //foreach (var digit in digitsArray)
+            //{
+            //    Console.WriteLine(digit);
+            //}
+
+            // 31. Представим, что вы получили текст с сайта,
+            // некоторые подстроки обернуты тегом <b/>. Необходимо избавиться от этого тега. 
+
+            //string input = "Hello <b/>world<b/>! Welcome to <b/>C#<b/> programming.";
+
+            //// Regex pattern to match <b/> and <b>
+            //string pattern = @"<b\s*/?>";
+
+            //// Replace all occurrences of <b/> or <b> with an empty string
+            //string result = Regex.Replace(input, pattern, "");
+
+            //// Output the result
+            //Console.WriteLine("Original Text: " + input);
+            //Console.WriteLine("Text after removing <b/> tags: " + result);
+
+            // 32. 
         }
     }
 }
