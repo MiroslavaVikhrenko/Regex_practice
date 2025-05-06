@@ -328,7 +328,26 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             // 27. Есть строка "-n 98 -s 82 -b 9 -a 9". Необходимо прочитать и
             // записать в переменную число после "-s". Использовать регулярные выражения.
 
+            //string input = "-n 98 -s 82 -b 9 -a 9";
 
+            //// Regex to capture number after -s
+            //string pattern = @"-s\s+(\d+)";
+
+            //Match match = Regex.Match(input, pattern);
+
+            //if (match.Success)
+            //{
+            //    string sValue = match.Groups[1].Value;
+            //    Console.WriteLine("Value after -s: " + sValue);
+
+            //    // Optionally convert to integer
+            //    int sNumber = int.Parse(sValue);
+            //    Console.WriteLine("As integer: " + sNumber);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No match found.");
+            //}
         }
     }
 }
