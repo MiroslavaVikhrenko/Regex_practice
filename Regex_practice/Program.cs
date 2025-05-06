@@ -441,7 +441,40 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //Console.WriteLine("Original Text: " + input);
             //Console.WriteLine("Text after removing <b/> tags: " + result);
 
-            // 32. 
+            // 32. Вам дана строка текста, содержащая адреса электронной почты,
+            // разделенные запятыми. Напишите программу на C#, которая использует
+            // регулярные выражения для извлечения каждого адреса электронной почты
+            // из строки, а затем проверяет каждый адрес электронной почты, чтобы
+            // убедиться, что он имеет правильный формат.
+            // Например, если дана строка "john.doe@example.com, jane.doe@example.com,
+            // invalid_email_address, bob@example.com", программа должна вывести:
+            //john.doe@example.com
+            //jane.doe@example.com
+            //bob@example.com
+            //Программа должна использовать регулярные выражения для извлечения каждого адреса
+            //электронной почты из строки, а затем проверить каждый адрес электронной почты с
+            //помощью шаблона регулярного выражения, который соответствует синтаксису действительного
+            //адреса электронной почты.
+
+            string input = "john.doe@example.com, jane.doe@example.com, invalid_email_address, bob@example.com";
+
+            // Regex pattern to match valid email addresses
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Split the input string by commas
+            string[] emails = input.Split(',');
+
+            // Loop through the emails, trimming any leading/trailing spaces
+            foreach (var email in emails)
+            {
+                string trimmedEmail = email.Trim();
+
+                // Check if the email matches the valid email pattern
+                if (Regex.IsMatch(trimmedEmail, emailPattern))
+                {
+                    Console.WriteLine(trimmedEmail); // Output valid emails
+                }
+            }
         }
     }
 }
