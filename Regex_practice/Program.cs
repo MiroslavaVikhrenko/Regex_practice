@@ -483,26 +483,55 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //Discover(начинается с 6011 или 65)
             //American Express(начинается с 34 или 37)
 
-            string[] creditCardNumbers = {
-            "4111111111111111",  // Visa
-            "5111111111111111",  // Mastercard
-            "6011123456789012",  // Discover
-            "371449635398431",   // American Express
-            "1234567890123456"   // Invalid card
-            };
+            //string[] creditCardNumbers = {
+            //"4111111111111111",  // Visa
+            //"5111111111111111",  // Mastercard
+            //"6011123456789012",  // Discover
+            //"371449635398431",   // American Express
+            //"1234567890123456"   // Invalid card
+            //};
 
-            // Regex pattern to validate credit card numbers
-            string cardPattern = @"^(4\d{12,15}|5\d{15}|6011\d{12,15}|65\d{12,15}|(34|37)\d{13})$";
+            //// Regex pattern to validate credit card numbers
+            //string cardPattern = @"^(4\d{12,15}|5\d{15}|6011\d{12,15}|65\d{12,15}|(34|37)\d{13})$";
 
-            foreach (var card in creditCardNumbers)
+            //foreach (var card in creditCardNumbers)
+            //{
+            //    if (Regex.IsMatch(card, cardPattern))
+            //    {
+            //        Console.WriteLine($"{card} is a valid credit card.");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"{card} is invalid.");
+            //    }
+            //}
+
+            // 34. Напишите регулярное выражение на C#, которое соответствует
+            // правильному URL-адресу вида http://www.example.com, где http:// -
+            // протокол, www - поддомен (который может быть опущен), а example.com -
+            // имя домена (которое может быть заменено любым правильным именем домена).
+
+            string[] urls = {
+            "http://www.example.com", // Valid
+            "http://example.com",     // Valid
+            "http://www.example.co.uk", // Valid
+            "http://example",         // Invalid
+            "ftp://example.com",      // Invalid (wrong protocol)
+            "http://example..com"     // Invalid (double dot)
+        };
+
+            // Regex pattern to match valid URLs with http:// protocol
+            string urlPattern = @"^http://(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$";
+
+            foreach (var url in urls)
             {
-                if (Regex.IsMatch(card, cardPattern))
+                if (Regex.IsMatch(url, urlPattern))
                 {
-                    Console.WriteLine($"{card} is a valid credit card.");
+                    Console.WriteLine($"{url} is a valid URL.");
                 }
                 else
                 {
-                    Console.WriteLine($"{card} is invalid.");
+                    Console.WriteLine($"{url} is invalid.");
                 }
             }
         }
