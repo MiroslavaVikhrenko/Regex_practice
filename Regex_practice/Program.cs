@@ -261,18 +261,72 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //    Console.WriteLine(match.ToString());
             //}
 
-            // 24. Дан текст, с перечисленными номерами регионов и их названиями:
+            //24.Дан текст, с перечисленными номерами регионов и их названиями:
             //02 - Винницкая, 25 - Черниговская, 18 - Сумская область и т.д.
             //Используя регулярное выражение, по вводу номера региона, достать название
             //региона из строки и вывести на экран. Если вводится не полный номер, например, цифра 2,
             //достать все регионы, начинающиеся на данную цифру.
 
-            string regions = "18-Sumy, 15-Odesa, 10-Kyiv, 04-Dnipro, 14-Mykolaiv";
+            //string regions = "18-Sumska, 15-Odeska, 10-Kyivska, 04-Dniprovska, 14-Mykolaivska";
 
-            Console.WriteLine("Enter region number:");
-            string region = Console.ReadLine();
+            //Console.WriteLine("Enter region number (or beginning of it):");
+            //string input = Console.ReadLine();
 
-            string pattern = $@"\b{region}\d*-([A-Za-z]+)\b";
+            //// Regex pattern to match any region number starting with the input, and capture the region name
+            //string pattern = $@"\b{Regex.Escape(input)}\d*-(\p{{L}}+)\b";
+
+            //MatchCollection matches = Regex.Matches(regions, pattern);
+
+            //if (matches.Count > 0)
+            //{
+            //    foreach (Match match in matches)
+            //    {
+            //        Console.WriteLine($"Region: {match.Groups[1].Value}");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No matching region found.");
+            //}
+
+            // 25.  Создать регулярное выражение, для проверки строки.
+            // Строка должна состоять из английских букв, без цифр и без двойных и более пробелов.
+
+            //Console.WriteLine("Enter a string:");
+            //string input = Console.ReadLine();
+
+            //// Regex pattern:
+            //// - ^ and $ to anchor the start and end
+            //// - [A-Za-z]+ for one or more letters
+            //// - ( [A-Za-z]+)* allows single spaces followed by more letters (no double spaces)
+            //// - Entire pattern allows letters and single spaces between words only
+            //string pattern = @"^[A-Za-z]+( [A-Za-z]+)*$";
+
+            //if (Regex.IsMatch(input, pattern))
+            //{
+            //    Console.WriteLine("Valid string.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid string. Only English letters and single spaces are allowed. No digits or double spaces.");
+            //}
+
+            // 26. Используя регулярные выражения из строки - \\192.186.0.1\папка1\папка2\ ,
+            // обрезать - \\192.186.0.1. Количество папок в пути, может быть неограниченным.
+
+            //string input = @"\\192.186.0.1\folder1\folder2\";
+
+            //// Regex pattern to match starting \\IP_ADDRESS\
+            //string pattern = @"^\\\\[0-9]{1,3}(?:\.[0-9]{1,3}){3}\\";
+
+            //// Replace the IP prefix with empty string
+            //string result = Regex.Replace(input, pattern, "");
+
+            //Console.WriteLine("Original: " + input);
+            //Console.WriteLine("Modified: " + result);
+
+            // 27. Есть строка "-n 98 -s 82 -b 9 -a 9". Необходимо прочитать и
+            // записать в переменную число после "-s". Использовать регулярные выражения.
 
 
         }
