@@ -348,6 +348,33 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //{
             //    Console.WriteLine("No match found.");
             //}
+
+
+            // 28. Вам дана строка, содержащая список кодов товаров.
+            // Каждый код продукта имеет вид "XXX-1234-ABCD", где "XXX"
+            // может быть любой из трех заглавных букв, а "1234" - четырехзначное число.
+            // Ваша задача извлечь список кодов товаров из строки и сохранить их в списке.
+
+            string input = "Product codes: ABC-1234-XYZ, DEF-5678-ABCD, invalid-code, GHI-0000-ZZZ";
+
+            // Regex pattern for product code
+            string pattern = @"\b[A-Z]{3}-\d{4}-[A-Z]+\b";
+
+            MatchCollection matches = Regex.Matches(input, pattern);
+
+            List<string> productCodes = new List<string>();
+
+            foreach (Match match in matches)
+            {
+                productCodes.Add(match.Value);
+            }
+
+            // Output the result
+            Console.WriteLine("Extracted product codes:");
+            foreach (var code in productCodes)
+            {
+                Console.WriteLine(code);
+            }
         }
     }
 }
