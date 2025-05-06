@@ -456,23 +456,53 @@ string text = "Mark bought 3 apples for 10$. Mike has 25.50$. Start 12345 End. @
             //помощью шаблона регулярного выражения, который соответствует синтаксису действительного
             //адреса электронной почты.
 
-            string input = "john.doe@example.com, jane.doe@example.com, invalid_email_address, bob@example.com";
+            //string input = "john.doe@example.com, jane.doe@example.com, invalid_email_address, bob@example.com";
 
-            // Regex pattern to match valid email addresses
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            //// Regex pattern to match valid email addresses
+            //string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
-            // Split the input string by commas
-            string[] emails = input.Split(',');
+            //// Split the input string by commas
+            //string[] emails = input.Split(',');
 
-            // Loop through the emails, trimming any leading/trailing spaces
-            foreach (var email in emails)
+            //// Loop through the emails, trimming any leading/trailing spaces
+            //foreach (var email in emails)
+            //{
+            //    string trimmedEmail = email.Trim();
+
+            //    // Check if the email matches the valid email pattern
+            //    if (Regex.IsMatch(trimmedEmail, emailPattern))
+            //    {
+            //        Console.WriteLine(trimmedEmail); // Output valid emails
+            //    }
+            //}
+
+            // 33. Создать регулярное выражение для проверки кредитных карт. 
+            // Регулярное выражение может соответствовать следующим типам кредитных карт:
+            //Visa(начинается с 4)
+            //Mastercard(начинается с 5)
+            //Discover(начинается с 6011 или 65)
+            //American Express(начинается с 34 или 37)
+
+            string[] creditCardNumbers = {
+            "4111111111111111",  // Visa
+            "5111111111111111",  // Mastercard
+            "6011123456789012",  // Discover
+            "371449635398431",   // American Express
+            "1234567890123456"   // Invalid card
+            };
+
+            // Regex pattern to validate credit card numbers
+            string cardPattern = @"^(4\d{12,15}|5\d{15}|6011\d{12,15}|65\d{12,15}|(34|37)\d{13})$";
+
+            foreach (var card in creditCardNumbers)
             {
-                string trimmedEmail = email.Trim();
-
-                // Check if the email matches the valid email pattern
-                if (Regex.IsMatch(trimmedEmail, emailPattern))
+                if (Regex.IsMatch(card, cardPattern))
                 {
-                    Console.WriteLine(trimmedEmail); // Output valid emails
+                    Console.WriteLine($"{card} is a valid credit card.");
+                }
+                else
+                {
+                    Console.WriteLine($"{card} is invalid.");
                 }
             }
         }
